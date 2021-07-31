@@ -3147,7 +3147,8 @@ module.exports = handle = (client, Client) => {
                       }) 
                       break
                       case 'donasi':
-                      data.reply('𝗗𝗢𝗡𝗔𝗦𝗜\n\n *DANA* : 081392641570\n *PULSA* : 081392641570\n *GOPAY* : 081392641570\n *SHOPEE PAY* : 082131434105\n *SAWERIA* : https://saweria.co/erdwpebot\n\n _*POWERED BY ERDWPE BOT*_') 
+                                            data.reply('𝗗𝗢𝗡𝗔𝗦𝗜\n\n ┣➥*DANA* : 081392641570\n ┣➥*PULSA* : 081392641570\n ┣➥*GOPAY* : 081392641570\n ┣➥*SHOPEE PAY* : 082131434105\n ┣➥*SAWERIA* : https://saweria.co/erdwpebot\n\n _*POWERED BY ERDWPE BOT ❤*_') 
+
                       break
                 case 'info':
                 data.reply(JSON.stringify(client.user, null, 2))
