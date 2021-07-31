@@ -1,0 +1,13 @@
+{	
+	"prefix": "multi", 
+	"defaultSessionName": "ERDWPE BOT", 
+	"zeksKey": "BryanRfly",
+	"autoRead": true,
+	"maxLimit": 15,
+	"ownerList": ["6281392641570@s.whatsapp.net","6281392641570@s.whatsapp.net"], 
+	"apiUrl": "https://api.zeks.xyz",
+	"botname": "ERDWPE BOT", 
+	"xkey": "your_key", 
+	"pack": "Made With",
+	"author": "ERDWPE BOT"
+}

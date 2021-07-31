@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="BryanRfly"> 
+    <link rel=”icon” type="image/x-icon" href=”https://telegra.ph/file/7627deab609c3651dddf5.jpg”>
+    <title>Bryan Bot</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+      body { 
+        background-color: black;
+        font-family: sofia;
+      }  
+      p {
+        font-family: Sans-Serif;
+        color: #FFFFF;
+        font-size: 50px;
+      }
+      h1 {
+        color: #00FF00;
+        font-size: 40px; 
+        margin: 1px auto;
+        text-align: left;
+      } 
+      .neon {
+        color: #FFFF00;
+         text-shadow: 0 0 5px  #19abff, 0 0 10px #19abff, 0 0 20px     #19abff, 0 0 45px           #19abff, 0 0 40px #19abff;
+      } 
+          a, button,input[type=submit],input[type=reset] {
+        font-family: sofia;
+        font-size: 15px;
+        background: #00BFFF;
+        color: white;
+        border: white 3px solid;
+        border-radius: 5px;
+        padding: 12px 20px;
+        margin-top: 10px;
+     }
+     a {
+        text-decoration: none;
+       }
+     a:hover, button:hover, input[type=submit]:hover, input[type=reset]:hover{
+             opacity:0.9;
+     }
+    </style>
+  </head>
+  <body>
+    <script language="JavaScript1.2">
+      function ClearError() {return true;}
+      window.onerror A= ClearError;
+    </script> 
+    <script>
+      window.onload = function() {
+var h1 = document.getElementsByTagName("h1")[0],
+text = h1.innerText || h1.textContent,
+split = [], i, lit = 0, timer = null;
+for(i = 0; i < text.length; ++i) {
+split.push("<span>" + text[i] + "</span>");
+}
+h1.innerHTML = split.join("");
+split = h1.childNodes;
+
+var flicker = function() {
+lit += 0.01;
+if(lit >= 1) {
+clearInterval(timer);
+}
+for(i = 0; i < split.length; ++i) {
+if(Math.random() < lit) {
+split[i].className = "neon";
+} else {
+split[i].className = "";
+}
+}
+}
+setInterval(flicker, 100);
+}
+</script>
+<br><br>
+<h1>Scan Qr Ini!</h1><br><br>
+    </script> 
+    <img id="qr"></img><br><br><br>
+    <a href="/configs">Settings</a>
+    <a href="https://github.com/BryanRfly/tes">Back</a>
+    <a href="https://wa.me/6289649480997">Contact</a> 
+       <script type="text/javascript">
+   const socket = io();
+   socket.on("qr", (qr) => {
+   if (!qr) return document.getElementById("sts").innerText="Connected succses!"
+   document.getElementById("qr").src= qr;
+   })
+   socket.on("con", (d) => {
+   document.getElementById("sts").alert("Berhasil Tersambung Dengan WhatsApp Mu!")
+   document.getElementById("qr").alert("Berhasil Tersambung Dengan WhatsApp Mu!");
+   })
+   socket.on("close", (d) => {
+   document.getElementById("sts").innerText="Disconnected";
+   document.getElementById("qr").src= null})
+</script></br> 
+       <p class="p">Don't Forget To Confirm Your Bot!</p>
+  </body>
+</html>

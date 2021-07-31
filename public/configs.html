@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="BryanRfly"> 
+    <meta name="description" content="Seting Bot Mu Sekarang!">
+    <title>Configs Your Bot</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+        a, button,input[type=submit],input[type=reset] {
+        font-family: sofia;
+        font-size: 15px;
+        background: #00BFFF;
+        color: white;
+        border: white 3px solid;
+        border-radius: 5px;
+        padding: 12px 20px;
+        margin-top: 10px;
+     }
+     a {
+        text-decoration: none;
+       }
+     a:hover, button:hover, input[type=submit]:hover, input[type=reset]:hover{
+             opacity:0.9;
+     }
+    </style>
+  </head>
+  <body>
+    <form action="/configs">
+   <input type="text" id="zeksKey" name="zeksKey">
+   <label for="xkey">ApiKey zeks</label><br>
+   <input type="text" id="xkey" name="xkey">
+   <label for="xkey">Apikey Xteam</label><br>
+   <input type="text" name="prefix" id="prefix">
+   <label for="prefix">prefix</label><br>
+   <input type="text" name="pack" id="pack">
+   <label for="pack">sticker pack name</label><br>
+    <input type="text" name="botname" id="botname">
+   <label for="botname">name your bot</label><br>
+   <input type="text" name="author" id="author">
+   <label for="author">sticker author</label><br>
+   <input type="text" name="maxLimit" id="maxLimit">
+   <label for="maxLimit">max limit</label><br>
+   <input name="autoRead" type="checkbox" id="autoRead">
+   <label for="autoRead">Auto Read</label><br>
+   <textarea id="ownerList" name="ownerList" rows="10" cols="30"></textarea>
+   <label for="ownerList">Owner</label><br>
+   <input type="submit" name="submit" value="Submit"><br><br>
+</form> 
+<a href="https://oyensad.herokuapp.com">Back</a>
+<script>
+   const socket = io();
+   socket.on("config", c => {
+   for (cn in c){
+   if (cn == "ownerList") document.getElementById(cn).value = c[cn].join("\n")
+   else if (cn == "autoRead" && c[cn]) document.getElementById(cn).setAttribute("checked", "checked");
+   else if (document.getElementById(cn)) document.getElementById(cn).value = c[cn]
+   }
+   })
+</script> 
+  </body>
+</html>
