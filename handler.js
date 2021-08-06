@@ -2055,8 +2055,8 @@ module.exports = handle = (client, Client) => {
     try {
     if (data.isGroup) {
       data.reply('Untuk Menghindari Anti link Pada Bot Lain Maka Link Grup Erdwpe Bot Akan Di Kirim Melalui Chat Pribadi!')
-      client.sendMessage(data.sender, `*Link Grup Erdwpe Bot*\n\nhttps://chat.whatsapp.com/KMFjoBvzylh3rnVsvnd5xL\nSilahkan Masuk Ya Kak ${data.pushname}`, MessageType.text, {quoted: data.message}) 
-    } else client.sendMessage(data.from, `*Link Grup Erdwpe Bot*\n\nhttps://chat.whatsapp.com/KMFjoBvzylh3rnVsvnd5xL\nSilahkan Masuk Ya Kak ${data.pushname}`, MessageType.text, {quoted: data.message}) 
+      client.sendMessage(data.sender, `*Link Grup Erdwpe Bot*\n\nhttps://chat.whatsapp.com/Gx1sbF67IELKwvdNBJUFHP\nSilahkan Masuk Ya Kak ${data.pushname}`, MessageType.text, {quoted: data.message}) 
+    } else client.sendMessage(data.from, `*Link Grup Erdwpe Bot*\n\nhttps://chat.whatsapp.com/Gx1sbF67IELKwvdNBJUFHP\nSilahkan Masuk Ya Kak ${data.pushname}`, MessageType.text, {quoted: data.message}) 
     } catch(e) {
       data.reply('' + e)
     }
