@@ -168,12 +168,6 @@ module.exports = handle = (client, Client) => {
           Client.sendFileFromUrl(data.from, `https://lolhuman.herokuapp.com/api/tiktokmusic?apikey=KopiLuwak&url=${data.body}`, 'tiktokaud.mp3', ``, data.message)
         })
         Client.cmd.on('ig', async(data) => {
-            if (isLimit(data.sender)) return data.reply(mess.limit) 
-                      if (data.body == "") return data.reply('Input Link') 
-                  Client.sendFileFromUrl(data.from, `https://dapuhy-api.herokuapp.com/api/socialmedia/igdownload?url=${data.body}&apikey=BryanRfly`, 'ig.mp4',`Video Berhasil Di Dapatkan @${data.sender.split('@')[0]}`, data.message)
-        })
-
-        Client.cmd.on('ig', async(data) => {
           if (isLimit(data.sender)) return data.reply(mess.limit)
           if (data.body == "") return data.reply('input link')
             mdfr = await axios.get(`http://api.lolhuman.xyz/api/instagram2?apikey=erdwpe2003&url=${data.body}`)
