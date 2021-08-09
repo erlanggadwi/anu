@@ -143,10 +143,10 @@ module.exports = handle = (client, Client) => {
           if (isLimit(data.sender)) return data.reply(mess.limit)
           if (data.body == "") return data.reply('input link')
           try {
-            mdfr = await axios.get(`https://xteam.xyz/dl/mediafire?url=${data.body}&APIKEY=${configs.xkey}`)
+            mdfr = await axios.get(`https://api.lolhuman.xyz/api/mediafire?apikey=erdwpe2003&url=${data.body}`)
             res = mdfr.data.result
-            Client.sendFileFromUrl(data.from, res.url, 'mediafire.document', ``, data.message)
-            if(Number(res.size.split(' MB')[0]) >= 40.00) return data.reply('Ukuran File Terlalu Besar Maksimal Ukuran File Adalah 40MB!')
+            Client.sendFileFromUrl(data.from, res.link, '', ``, data.message)
+            if(Number(res.filesize.split(' MB')[0]) >= 40.00) return data.reply('Ukuran File Terlalu Besar Maksimal Ukuran File Adalah 40MB!')
           } catch(e) {
             data.reply(''+e)
           }
@@ -172,11 +172,16 @@ module.exports = handle = (client, Client) => {
                       if (data.body == "") return data.reply('Input Link') 
                   Client.sendFileFromUrl(data.from, `https://dapuhy-api.herokuapp.com/api/socialmedia/igdownload?url=${data.body}&apikey=BryanRfly`, 'ig.mp4',`Video Berhasil Di Dapatkan @${data.sender.split('@')[0]}`, data.message)
         })
+
         Client.cmd.on('ig', async(data) => {
-          if (isLimit(data.sender)) return data.reply(mess.limit) 
-                    if (data.body == "") return data.reply('Input Link') 
-                Client.sendFileFromUrl(data.from, `https://dapuhy-api.herokuapp.com/api/socialmedia/igdownload?url=${data.body}&apikey=BryanRfly`, 'ig.mp4',`Video Berhasil Di Dapatkan @${data.sender.split('@')[0]}`, data.message)
-      })
+          if (isLimit(data.sender)) return data.reply(mess.limit)
+          if (data.body == "") return data.reply('input link')
+            mdfr = await axios.get(`http://api.lolhuman.xyz/api/instagram2?apikey=erdwpe2003&url=${data.body}`)
+            res = mdfr.data.result
+            for (let i = 0; i < mdfr.data.result.media.length; i++) {
+            Client.sendFileFromUrl(data.from, res.media[i], '', 'nih ngab', ``, data.message)
+            }
+          })
         Client.cmd.on('igstory', async (data) => {
             try {
                 if(isLimit(data.sender)) return data.reply(mess.limit)
@@ -2346,14 +2351,13 @@ module.exports = handle = (client, Client) => {
                         data.reply('error')
                     }
                     break
-                case 'takestick':
+                 case 'takestick':
                 case 'takestik':
                     if(isLimit(data.sender)) return data.reply(mess.limit)
                     if(!data.isQuotedSticker) return data.reply('Reply sticker!')
                     if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}${data.command} [ pack|author ]*\nContoh : ${data.prefix}${data.command} punya|asuna`)
                     data.reply(mess.wait)
-                    p = data.body
-                    text = p.split('|')
+                    text = data.body.split('|')
                     const buff = await client.downloadMediaMessage(JSON.parse(JSON.stringify(data.message).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo)
                     Client.sendWebpAsSticker(data.from, buff.toString('base64'), data.message, {
                         pack: `${text[0]}`,
